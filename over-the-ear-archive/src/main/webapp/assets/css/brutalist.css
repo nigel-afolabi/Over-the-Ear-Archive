@@ -1,0 +1,150 @@
+:root {
+    --bg-void: #0d0d0d;
+    --text-raw: #f4f4f4;
+    --text-muted: #555555;
+    --border-harsh: #333333;
+    --font-ui: "SFMono-Regular", Consolas, Menlo, monospace;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-void);
+    color: var(--text-raw);
+    font-family: var(--font-ui);
+    overflow-x: hidden;
+}
+
+/* --- Persistent Navigation --- */
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: var(--bg-void);
+    border-bottom: 1px solid var(--border-harsh);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.nav-cluster {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.brand-mark {
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.nav-link, a.nav-link {
+    background: none;
+    border: none;
+    color: var(--text-raw);
+    text-decoration: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    text-transform: uppercase;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
+
+/* --- Admin Slide-Out Panel --- */
+.admin-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh;
+    background-color: #111111;
+    border-left: 1px solid var(--border-harsh);
+    z-index: 999;
+    transition: right 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-drawer.is-open {
+    right: 0;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-harsh);
+    font-size: 0.85rem;
+}
+
+.admin-body {
+    padding: 2rem 1.5rem;
+}
+
+/* --- Raw Forms --- */
+.raw-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.raw-form label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.raw-form input {
+    background: transparent;
+    border: 1px solid var(--border-harsh);
+    color: var(--text-raw);
+    padding: 0.75rem;
+    font-family: inherit;
+    outline: none;
+}
+
+.raw-form input:focus {
+    border-color: var(--text-raw);
+}
+
+.raw-btn {
+    background: var(--text-raw);
+    color: var(--bg-void);
+    border: none;
+    padding: 0.75rem;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.raw-btn:hover {
+    background: #ffffff;
+}
+/* --- FNAF Camera Transition --- */
+#static-transition-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Using a raw data-URI for a static noise pattern to avoid external image dependencies */
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.glitch-active {
+    animation: shutterBlink 0.15s cubic-bezier(0.8, 0, 0, 1) forwards;
+}
+
+@keyframes shutterBlink {
+    0% { opacity: 0; }
+    50% { opacity: 0.9; filter: contrast(300%) grayscale(100%); }
+    100% { opacity: 0; }
+}
