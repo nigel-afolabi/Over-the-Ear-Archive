@@ -5,6 +5,11 @@
 
   <display-name>Over the Ear Archive</display-name>
 
+  <context-param>
+    <param-name>adminPassword</param-name>
+    <param-value>overtheear-admin</param-value>
+  </context-param>
+
   <servlet>
     <servlet-name>LatestServlet</servlet-name>
     <servlet-class>com.overtheear.controllers.LatestServlet</servlet-class>
@@ -21,6 +26,15 @@
   <servlet-mapping>
     <servlet-name>AlbumController</servlet-name>
     <url-pattern>/album</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>com.overtheear.controllers.AdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/admin</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>

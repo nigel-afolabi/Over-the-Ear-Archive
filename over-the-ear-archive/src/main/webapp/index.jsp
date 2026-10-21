@@ -95,7 +95,15 @@
             text-shadow: 0 0 30px rgba(255, 20, 147, 0.18);
         }
 
-        .enter-btn {
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            justify-content: center;
+        }
+
+        .enter-btn,
+        .admin-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -111,7 +119,8 @@
             transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
         }
 
-        .enter-btn:hover {
+        .enter-btn:hover,
+        .admin-btn:hover {
             border-color: rgba(255, 105, 180, 0.7);
             background: rgba(255, 105, 180, 0.08);
             color: var(--accent-soft);
@@ -158,7 +167,10 @@
         <div class="static-glow"></div>
         <div class="ui-wrapper">
             <h1 class="main-title">over the ear.</h1>
-            <a href="${pageContext.request.contextPath}/latest" class="enter-btn" id="enter-btn">enter</a>
+            <div class="cta-row">
+                <a href="${pageContext.request.contextPath}/latest" class="enter-btn" id="enter-btn">enter</a>
+                <a href="${pageContext.request.contextPath}/admin" class="admin-btn">admin</a>
+            </div>
         </div>
     </div>
 </body>
