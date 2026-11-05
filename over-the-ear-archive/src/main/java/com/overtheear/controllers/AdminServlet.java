@@ -137,7 +137,7 @@ public class AdminServlet extends HttpServlet {
             return tracks;
         }
 
-        Pattern pattern = Pattern.compile("(?m)^(?:\\s*(?:\\d+)[\\.)-\\s]+)?\\s*(.+?)\\s*[-–—]\\s*(\\d{1,2}:\\d{2})\\s*$");
+        Pattern pattern = Pattern.compile("^(?:\\s*\\d+[.)]\\s*)?(.+?)\\s+-\\s+(\\d{1,2}:\\d{2})\\s*$");
         String[] lines = rawTrackList.split("\\R");
 
         for (String line : lines) {
