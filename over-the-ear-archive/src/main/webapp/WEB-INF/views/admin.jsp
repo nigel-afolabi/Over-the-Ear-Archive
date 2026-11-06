@@ -183,7 +183,7 @@
                             </div>
                             <div>
                                 <label for="dominantColorHex">Accent color</label>
-                                <input id="dominantColorHex" name="dominantColorHex" placeholder="#ff1493">
+                                <input id="dominantColorHex" name="dominantColorHex" type="color" value="#ff1493">
                             </div>
                         </div>
 

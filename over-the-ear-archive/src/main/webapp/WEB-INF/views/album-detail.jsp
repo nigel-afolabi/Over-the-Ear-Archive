@@ -14,7 +14,8 @@
             --muted: #b9b0a6;
             --line: rgba(255, 255, 255, 0.08);
             --accent: #ff1493;
-            --accent-soft: #ff69b4;
+            --accent: ${empty album.dominantColorHex ? '#ff1493' : album.dominantColorHex};
+            --accent-soft: var(--accent);
         }
 
         * { box-sizing: border-box; }
@@ -76,7 +77,7 @@
         }
 
         .nav-back:hover {
-            color: var(--accent-soft);
+            color: var(--accent);
         }
 
         .album-cover-block {
@@ -108,7 +109,7 @@
 
         .eyebrow {
             margin: 0 0 0.7rem;
-            color: var(--muted);
+            color: var(--accent);
             font-size: 0.72rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -165,7 +166,7 @@
             margin-top: 1.5rem;
             padding-top: 1rem;
             border-top: 1px solid var(--line);
-            color: var(--muted);
+            color: var(--accent);
             font-size: 0.72rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -179,7 +180,7 @@
 
         .panel-label {
             margin: 0 0 0.8rem;
-            color: var(--muted);
+            color: var(--accent);
             font-size: 0.72rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
@@ -214,7 +215,7 @@
 
         .track-table td.track-number {
             width: 2.4rem;
-            color: var(--muted);
+            color: var(--accent);
         }
 
         .track-table td.track-title {

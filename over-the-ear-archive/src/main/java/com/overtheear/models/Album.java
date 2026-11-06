@@ -30,7 +30,10 @@ public class Album {
     public void setCoverImagePath(String coverImagePath) { this.coverImagePath = coverImagePath; }
 
     public String getDominantColorHex() { return dominantColorHex; }
-    public void setDominantColorHex(String dominantColorHex) { this.dominantColorHex = dominantColorHex; }
+    public void setDominantColorHex(String dominantColorHex) {
+        String color = dominantColorHex == null ? null : dominantColorHex.trim();
+        this.dominantColorHex = color != null && color.matches("#[0-9a-fA-F]{6}") ? color : null;
+    }
 
     public Date getReviewDate() { return reviewDate; }
     public void setReviewDate(Date reviewDate) { this.reviewDate = reviewDate; }

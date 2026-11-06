@@ -67,6 +67,7 @@
         }
 
         .album-card {
+            --album-accent: #ff1493;
             display: flex;
             flex-direction: column;
             align-self: start;
@@ -82,7 +83,7 @@
         }
 
         .album-card:hover {
-            border-color: rgba(255, 105, 180, 0.6);
+            border-color: var(--album-accent);
             transform: translateY(-2px);
         }
 
@@ -130,7 +131,7 @@
 
     <div class="album-grid">
         <c:forEach var="album" items="${albums}">
-            <a href="${pageContext.request.contextPath}/album?id=${album.id}" class="album-card">
+            <a href="${pageContext.request.contextPath}/album?id=${album.id}" class="album-card" style="--album-accent: ${empty album.dominantColorHex ? '#ff1493' : album.dominantColorHex}">
                 <div class="cover-container">
                     <img src="${pageContext.request.contextPath}/${album.coverImagePath}" alt="${album.albumTitle}">
                 </div>

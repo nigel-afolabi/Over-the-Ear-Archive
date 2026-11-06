@@ -77,7 +77,14 @@ public class AdminServlet extends HttpServlet {
             album.setAlbumTitle(trimToNull(request.getParameter("albumTitle")));
             album.setArtistName(trimToNull(request.getParameter("artistName")));
             album.setCoverImagePath(trimToNull(request.getParameter("coverImagePath")));
-            album.setDominantColorHex(trimToNull(request.getParameter("dominantColorHex")));
+            String dominantColorHex = trimToNull(request.getParameter("dominantColorHex"));
+            if (dominantColorHex != null && !dominantColorHex.matches("#[0-9a-fA-F]{6}")) {
+                request.setAttribute("loggedIn", true);
+                request.setAttribute("error", "Accent color must be a six-digit hex color.");
+                request.getRequestDispatcher("/WEB-INF/views/admin.jsp").forward(request, response);
+                return;
+            }
+            album.setDominantColorHex(dominantColorHex);
             album.setReviewText(trimToNull(request.getParameter("reviewText")));
             album.setReviewerName(trimToNull(request.getParameter("reviewerName")));
             album.setCredits(trimToNull(request.getParameter("credits")));
